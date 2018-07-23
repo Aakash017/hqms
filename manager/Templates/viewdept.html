@@ -1,0 +1,26 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+            {% if dep %}
+            {% for i in dep %}
+
+
+<div class="col-sm-4">
+            <h1 class="depname">{{ i.dept_name }}<br>
+            <a class="btn btn-primary" href="/manager/updatedept/?did={{i.dept_id}}">Update </a>
+            <a class="btn btn-primary" href="/manager/deletedept/?did={{i.dept_id}}">Delete </a>
+            </h1>
+</div>
+
+{% endfor %}
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+       <form method="POST">
+           {% csrf_token %}
+           <div class="col-sm-9">
+            <img src="/media/{{sdata.user_image}}" height="120px;"; width="120px;"/><br><br>
+             <label >Name</label><br>
+            <input type="text" id="t1" class="form-control" name="t1" value="{{ sdata.user_username }}"><br>
+            <label >email</label><br>
+            <input type="text" id="t2" class="form-control" name="t2" value="{{ sdata.user_email }}"><br>
+            <label >MobileNo</label><br>
+            <input type="text" id="t3" class="form-control" name="t3" value="{{ sdata.user_mobile }}"><br>
+            <label >DOB</label><br>
+            <input type="text" id="t4" class="form-control" name="t4" value="{{ sdata.user_dob }}"><br>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+       </div>
+       </form>
+    </div>
+</div>
+
+
+{% endblock content %}

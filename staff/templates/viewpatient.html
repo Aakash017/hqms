@@ -1,0 +1,49 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            {% if k %}
+            {% for i in k %}
+
+            <div class="col-sm-4 box">
+                <img src="/media/{{i.user_image}}" height="100px"; width="100px;"><br>
+
+               <p> {{ i.user_username }}</p>
+                <p>{{i.user_roleid }}</p>
+                <p>{{i.user_dob}}</p>
+                <p>{{i.user_email}}</p>
+                <p>{{i.user_mobile}}</p>
+                <a class="btn btn-primary" href="/staff/editpatient/?eid={{i.user_email }}">edit</a>
+                <a class="btn btn-danger" href="/staff/deletepatient/?eid={{i.user_email }}">delete</a>
+
+
+
+            </div>
+
+            {% endfor %}
+            {% endif %}
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock content %}

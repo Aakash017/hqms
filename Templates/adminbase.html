@@ -1,0 +1,77 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="IE=edge" >
+ <link type="text/css" href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link type="text/css" href="/assets/css/sty.css" rel="stylesheet"/>
+
+    <title>Title</title>
+</head>
+<body>
+<div class="top-bar">
+    <div class="container">
+    <div class="row ">
+        <div class="col-sm-12">
+            <h2 style="text-align:center;">
+                DIGITAL HOSPITAL MANAGER
+            </h2>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-sm-3 dashboard">
+
+
+<ul class="sidemenu">
+       <li><a href="{% url 'patient:index' %}"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
+
+        {% if request.session.roleid == 1 %}
+        <li><a href="{% url 'manager:adddept' %}"><i class="fa fa-home" aria-hidden="true"></i>AddDepartment</a></li>
+        <li><a href="{% url 'manager:viewdept' %}"><i class="fa fa-home" aria-hidden="true"></i>ViewDepartment</a></li>
+        <li><a href="{% url 'manager:addstaff' %}"><i class="fa fa-home" aria-hidden="true"></i>AddStaff</a></li>
+        <li><a href="{% url 'manager:viewstaff' %}"><i class="fa fa-home" aria-hidden="true"></i>ViewStaff</a></li>
+
+
+
+        {% elif request.session.roleid == 2 %}
+         <li><a href="{% url 'staff:addpatient' %}"><i class="fa fa-home" aria-hidden="true"></i>Addpatient</a></li>
+         <li><a href="{% url 'staff:viewpatient' %}"><i class="fa fa-home" aria-hidden="true"></i>Viewpatient</a></li>
+
+
+
+
+    {% endif %}
+        <li><a href="{% url 'patient:editprofile'%}"><i class="fa fa-home" aria-hidden="true"></i>Editprofile</a></li>
+        <li><a href="{% url 'patient:changepassword'%}"><i class="fa fa-home" aria-hidden="true"></i>Changepwd</a></li>
+
+
+        <li><a href="{% url 'patient:index' %}"><i class="fa fa-home" aria-hidden="true"></i>Logout</a></li>
+
+</ul>
+</div>
+
+    <div class="col-sm-9">
+
+        {% block content %}
+        {% endblock content %}
+
+
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="/assets/js/jquery1.js">
+	</script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js">
+	</script>
+</body>
+</html>
